@@ -1,0 +1,16 @@
+{
+  "name": "meetingscheduling",
+  "version": "1.0.0",
+  "description": "meeting scheduling api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Dhanush Mukhi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongose": "0.0.2-security"
+  }
+}
