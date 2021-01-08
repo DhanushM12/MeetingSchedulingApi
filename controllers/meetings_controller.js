@@ -61,7 +61,7 @@ module.exports.createMeeting = async function (req, res) {
     else{ 
         console.log("Result : ", data); 
         return res.status(200).json({
-          data: data,
+         data:[data],
           message: "Meeting Found in start and end!",
         });
     }
