@@ -14,7 +14,7 @@ const participentSchema = new mongoose.Schema(
       },
     rsvp: {
         type: String,
-        default: yes,
+        default: 'Yes',
         enum: ['Yes', 'No', 'MayBe', 'Not Answered'],
         required: true,
     },

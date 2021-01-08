@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //meeting schema design
 const meetingSchema = new mongoose.Schema(
   {
-    title: {
+    title:{
       type: String,
       required: true,
     },
@@ -14,11 +14,11 @@ const meetingSchema = new mongoose.Schema(
         },
       ],
     start_time:{
-        type: String,
+        type: Date,
       required: true,
     },
     end_time:{
-        type: String,
+        type: Date,
       required: true,
     },
   },

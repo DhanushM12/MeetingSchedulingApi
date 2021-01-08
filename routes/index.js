@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const meetingsController = require('../controllers/meetings_controller');
 
 console.log("router loaded");
+//for any other routes, access from here
+//router.use('/routerName', require('./routerFile'));
+router.use("/meetings", require("./meetings"));
 
-//create meeting route
-router.post('/meetings', meetingsController.createMeeting);
-
-//get meeting
-router.get('/meetings/:id', meetingsController.getMeeting);
+module.exports = router;
