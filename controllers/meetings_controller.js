@@ -2,15 +2,13 @@ const Meetings = require('../models/meeting');
 const Participants = require('../models/participants');
 
 module.exports.createMeeting = async function (req, res) {
-  //make a condition if there is a meeting at same time
   //let st = new Date();
   //let et = new Date(st);
- et.setHours(et.getHours()+1);
+ //et.setHours(et.getHours()+1);
     try {
       console.log(req.body);
       let meeting = await Meetings.create({
         title: req.body.title,
-        participants: req.body.participants,
         start_time: req.body.start_time,
         end_time: req.body.end_time
       });
@@ -45,21 +43,6 @@ module.exports.createMeeting = async function (req, res) {
           });
       } 
   }); 
-    /*try{
-    const id=req.params.id;
-
-    const meetingDetails= await Meetings.findOne(id)
-    
-    if(meetingDetails!=null){
-      res.status(200).json({meetingDetails})
-    }
-  }
-  catch (err) {
-    console.log("error", err);
-    return res.status(400).json({
-      message: "cannot find meeting"
-    })
-  }*/
   }
 
   module.exports.listMeetings = function(req, res){
