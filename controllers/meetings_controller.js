@@ -9,6 +9,7 @@ module.exports.createMeeting = async function (req, res) {
       console.log(req.body);
       let meeting = await Meetings.create({
         title: req.body.title,
+        participants: req.body.participants,
         start_time: req.body.start_time,
         end_time: req.body.end_time
       });
@@ -26,6 +27,31 @@ module.exports.createMeeting = async function (req, res) {
       })
     }
   };
+
+  module.exports.createParticipants = async function (req, res) {
+    //let st = new Date();
+    //let et = new Date(st);
+   //et.setHours(et.getHours()+1);
+      try {
+        console.log(req.body);
+        let participants = await Participants.create({
+          name: req.body.name,
+          email: req.body.email,
+        });
+          return res.status(200).json({
+            data: {
+             participants: participants
+            },
+            message: "Participants Created!",
+          });
+    
+      } catch (err) {
+        console.log("error", err);
+        return res.status(400).json({
+          message: "cannot create participants"
+        })
+      }
+    };
 
   module.exports.getMeeting = function(req, res){
     Meetings.findOne({_id: req.params.id} , function (err, data) { 
@@ -66,3 +92,7 @@ module.exports.createMeeting = async function (req, res) {
         });
     }
   })};
+
+  module.exports.participantsMeetings = function(req, res){
+
+  }
