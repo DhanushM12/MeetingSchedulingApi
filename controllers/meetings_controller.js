@@ -9,7 +9,7 @@ module.exports.createMeeting = async function (req, res) {
       console.log(req.body);
       let meeting = await Meetings.create({
         title: req.body.title,
-        participants: req.body.participants,
+        participants: req.body.participants.email,
         start_time: req.body.start_time,
         end_time: req.body.end_time
       });
@@ -94,5 +94,22 @@ module.exports.createMeeting = async function (req, res) {
   })};
 
   module.exports.participantsMeetings = function(req, res){
+    let participant = req.query.email;
+    let pe = participants.email;
+    Meetings.find({pe: participant}, function (err, data) { 
+      if (err){ 
+          console.log(err)
+          return res.status(400).json({
+            message: "no meeting found of participant"
+          })
+      } 
+      else{ 
+          console.log("Result : ", data); 
+          return res.status(200).json({
+            data: data,
+            message: "Meetings Found of a participant!",
+          });
+      } 
+  })
 
   }

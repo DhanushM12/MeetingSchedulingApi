@@ -10,4 +10,6 @@ router.get('/:id', meetingsController.getMeeting);
 
 router.get('/', meetingsController.listMeetings);
 
+router.get('/', meetingsController.participantsMeetings);
+
 module.exports = router;
